@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunar Essence - Storyboard & Wireframes</title>
+    <style>
+        /* ===================================
+           CSS VARIABLES & RESET
+           =================================== */
+        :root {
+            /* Color Palette */
+            --color-primary: #4A6B6B;        /* Deep Teal/Sage */
+            --color-secondary: #E8DCC4;      /* Cream/Beige */
+            --color-accent: #C9A961;         /* Soft Gold */
+            --color-text: #2C3E50;           /* Deep Navy/Charcoal */
+            --color-light-sage: #A8C5C0;     /* Light Sage */
+            --color-white: #FFFFFF;
+            --color-border: #E0E0E0;
+            
+            /* Typography */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            
+            /* Breakpoints */
+            --breakpoint-mobile: 600px;
+            --breakpoint-desktop: 950px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            line-height: 1.6;
+            background: var(--color-white);
+        }
+        
+        /* ===================================
+           STORYBOARD HEADER
+           =================================== */
+        .storyboard-header {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--space-2xl) var(--space-xl);
+            text-align: center;
+        }
+        
+        .storyboard-header h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .storyboard-header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* ===================================
+           NAVIGATION TABS
+           =================================== */
+        .tab-navigation {
+            background: var(--color-secondary);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: var(--space-md);
+            gap: var(--space-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .tab-btn {
+            background: var(--color-white);
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+            padding: var(--space-sm) var(--space-lg);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .tab-btn.active {
+            background: var(--color-accent);
+            color: var(--color-white);
+            border-color: var(--color-accent);
+        }
+        
+        /* ===================================
+           CONTENT SECTIONS
+           =================================== */
+        .content-section {
+            display: none;
+            padding: var(--space-2xl) var(--space-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-xl);
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-text);
+            margin-bottom: var(--space-2xl);
+            text-align: center;
+        }
+        
+        /* ===================================
+           COLOR PALETTE DISPLAY
+           =================================== */
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .color-card {
+            text-align: center;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .color-swatch {
+            height: 150px;
+            width: 100%;
+        }
+        
+        .color-info {
+            padding: var(--space-lg);
+            background: var(--color-white);
+        }
+        
+        .color-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text);
+        }
+        
+        .color-hex, .color-rgb {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #666;
+            margin: var(--space-xs) 0;
+        }
+        
+        .color-usage {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: var(--space-sm);
+            font-style: italic;
+        }
+        
+        /* ===================================
+           TYPOGRAPHY SHOWCASE
+           =================================== */
+        .typography-showcase {
+            background: var(--color-white);
+            padding: var(--space-2xl);
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .font-example {
+            margin-bottom: var(--space-2xl);
+            padding-bottom: var(--space-2xl);
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .font-example:last-child {
+            border-bottom: none;
+        }
+        
+        .font-label {
+            font-size: 0.85rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .heading-example {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--color-primary);
+        }
+        
+        .body-example {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        /* ===================================
+           WIREFRAME CONTAINERS
+           =================================== */
+        .wireframe-container {
+            background: #f5f5f5;
+            padding: var(--space-2xl);
+            border-radius: 12px;
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .device-toggle {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .device-btn {
+            background: var(--color-white);
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+            padding: var(--space-sm) var(--space-xl);
+            margin: 0 var(--space-sm);
+            font-family: var(--font-body);
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .device-btn.active {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .wireframe-view {
+            display: none;
+            background: var(--color-white);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        
+        .wireframe-view.active {
+            display: block;
+        }
+        
+        /* Desktop Wireframe */
+        .desktop-view {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        /* Mobile Wireframe */
+        .mobile-view {
+            max-width: 375px;
+            margin: 0 auto;
+        }
+        
+        /* ===================================
+           WIREFRAME COMPONENTS
+           =================================== */
+        .wf-header {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .wf-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .wf-nav {
+            display: flex;
+            gap: var(--space-lg);
+        }
+        
+        .wf-nav-item {
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        
+        .wf-user-actions {
+            display: flex;
+            gap: var(--space-md);
+        }
+        
+        .wf-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .wf-hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-light-sage) 100%);
+            padding: var(--space-3xl) var(--space-xl);
+            text-align: center;
+            color: var(--color-white);
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .wf-hero-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .wf-hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: var(--space-xl);
+            max-width: 600px;
+        }
+        
+        .wf-cta {
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: var(--space-md) var(--space-2xl);
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+            margin: var(--space-sm);
+        }
+        
+        .wf-section {
+            padding: var(--space-3xl) var(--space-xl);
+        }
+        
+        .wf-section-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .wf-product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .wf-product-card {
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .wf-product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        
+        .wf-product-image {
+            background: var(--color-secondary);
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .wf-product-info {
+            padding: var(--space-lg);
+        }
+        
+        .wf-product-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text);
+        }
+        
+        .wf-product-collection {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .wf-product-price {
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .wf-add-to-cart {
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: 8px;
+            width: 100%;
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .wf-footer {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--space-2xl) var(--space-xl);
+            text-align: center;
+        }
+        
+        /* Cart Page Wireframe */
+        .wf-cart-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-2xl);
+            padding: var(--space-2xl);
+        }
+        
+        .wf-cart-items {
+            background: #fafafa;
+            padding: var(--space-xl);
+            border-radius: 12px;
+        }
+        
+        .wf-cart-item {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            gap: var(--space-lg);
+            padding: var(--space-lg);
+            background: var(--color-white);
+            border-radius: 8px;
+            margin-bottom: var(--space-lg);
+            border: 1px solid var(--color-border);
+        }
+        
+        .wf-cart-item-image {
+            background: var(--color-secondary);
+            border-radius: 8px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #888;
+        }
+        
+        .wf-cart-summary {
+            background: #fafafa;
+            padding: var(--space-xl);
+            border-radius: 12px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .wf-summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .wf-summary-total {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        
+        /* Auth Page Wireframe */
+        .wf-auth-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            padding: var(--space-3xl) var(--space-xl);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .wf-form-section {
+            background: #fafafa;
+            padding: var(--space-2xl);
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+        }
+        
+        .wf-form-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-xl);
+            text-align: center;
+        }
+        
+        .wf-input-group {
+            margin-bottom: var(--space-lg);
+        }
+        
+        .wf-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text);
+        }
+        
+        .wf-input {
+            width: 100%;
+            padding: var(--space-md);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: var(--color-white);
+        }
+        
+        .wf-button {
+            width: 100%;
+            padding: var(--space-md);
+            background: var(--color-accent);
+            color: var(--color-white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: var(--space-lg);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 950px) {
+            .wf-nav {
+                display: none;
+            }
+            
+            .wf-cart-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .wf-auth-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .wf-product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .storyboard-header h1 {
+                font-size: 2rem;
+            }
+            
+            .wf-hero-title {
+                font-size: 2rem;
+            }
+            
+            .wf-product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .wf-cart-item {
+                grid-template-columns: 80px 1fr;
+            }
+        }
+        
+        /* Annotation Labels */
+        .annotation {
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-block;
+            margin: var(--space-sm) 0;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+            border-radius: 8px;
+        }
+        
+        .info-box h4 {
+            color: #1976d2;
+            margin-bottom: var(--space-sm);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script>
+        // Tab Navigation Function
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+        
+        // Device Toggle Function
+        function toggleDevice(wireframeId, deviceType) {
+            // Hide all views within this wireframe
+            const container = document.getElementById(wireframeId);
+            const views = container.querySelectorAll('.wireframe-view');
+            views.forEach(view => {
+                view.classList.remove('active');
+            });
+            
+            // Remove active class from device buttons
+            const buttons = container.querySelectorAll('.device-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected device view
+            container.querySelector('.' + deviceType + '-view').classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+    <!-- Storyboard Header -->
+    <div class="storyboard-header">
+        <h1>🌙 Lunar Essence</h1>
+        <p>E-Commerce Website Storyboard & Wireframes | CIT2011 Individual Assignment #2</p>
+    </div>
+    
+    <!-- Tab Navigation -->
+    <div class="tab-navigation">
+        <button class="tab-btn active" onclick="showSection('overview')">Overview</button>
+        <button class="tab-btn" onclick="showSection('colors')">Color Palette</button>
+        <button class="tab-btn" onclick="showSection('typography')">Typography</button>
+        <button class="tab-btn" onclick="showSection('homepage')">Homepage</button>
+        <button class="tab-btn" onclick="showSection('products')">Products Page</button>
+        <button class="tab-btn" onclick="showSection('cart')">Cart Page</button>
+        <button class="tab-btn" onclick="showSection('auth')">Login/Register</button>
+        <button class="tab-btn" onclick="showSection('checkout')">Checkout</button>
+    </div>
+    
+    <!-- Overview Section -->
+    <div id="overview" class="content-section active">
+        <h2 class="section-title">Project Overview</h2>
+        
+        <div class="info-box">
+            <h4>📋 Project Details</h4>
+            <p><strong>Business Name:</strong> Lunar Essence</p>
+            <p><strong>Business Type:</strong> Luxury Hand-Poured Candle E-Commerce</p>
+            <p><strong>Tagline:</strong> "Illuminate Your Space with Lunar Luxury"</p>
+            <p><strong>Unique Feature:</strong> Moon Phase Collections (New Moon, Crescent Moon, Half Moon, Gibbous Moon, Full Moon)</p>
+            <p><strong>Target Audience:</strong> Adults 18+, home decorators, gift buyers, wellness enthusiasts</p>
+        </div>
+        
+        <div class="info-box">
+            <h4>🎯 Core Features</h4>
+            <ul style="margin-left: 1.5rem; line-height: 2;">
+                <li>User Registration & Login System</li>
+                <li>Product Catalog with 5 Moon Phase Collections</li>
+                <li>Product Filtering (by collection, size, price, scent)</li>
+                <li>Shopping Cart with quantity adjustment</li>
+                <li>Checkout with shipping, billing, and gift message</li>
+                <li>Responsive Design (Mobile 600px+ & Desktop 950px+)</li>
+                <li>localStorage for user sessions and cart persistence</li>
+            </ul>
+        </div>
+        
+        <div class="info-box">
+            <h4>💻 Technology Stack</h4>
+            <p><strong>Frontend:</strong> Vanilla HTML5, CSS3, JavaScript (ES6+)</p>
+            <p><strong>Storage:</strong> localStorage (client-side)</p>
+            <p><strong>No Frameworks:</strong> Hand-coded from scratch (no Bootstrap, React, etc.)</p>
+            <p><strong>Hosting:</strong> Netlify / Vercel (free hosting)</p>
+            <p><strong>Version Control:</strong> GitHub</p>
+        </div>
+        
+        <div class="info-box">
+            <h4>📄 Page Structure</h4>
+            <ol style="margin-left: 1.5rem; line-height: 2;">
+                <li><strong>Homepage</strong> - Hero, featured products, collections overview</li>
+                <li><strong>Products Page</strong> - Product catalog with filters</li>
+                <li><strong>Product Detail</strong> - Individual product information</li>
+                <li><strong>Auth Page</strong> - Combined Login/Registration</li>
+                <li><strong>Cart Page</strong> - Shopping cart with calculations</li>
+                <li><strong>Checkout Page</strong> - Shipping, billing, payment</li>
+                <li><strong>About Us</strong> - Brand story and student info</li>
+                <li><strong>Care Tips</strong> - Candle care instructions</li>
+            </ol>
+        </div>
+    </div>
+    
+    <!-- Color Palette Section -->
+    <div id="colors" class="content-section">
+        <h2 class="section-title">Color Palette</h2>
+        <p class="section-subtitle">Luxury candle brand colors inspired by moon and natural elements</p>
+        
+        <div class="color-palette">
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #4A6B6B;"></div>
+                <div class="color-info">
+                    <div class="color-name">Deep Teal/Sage</div>
+                    <div class="color-hex">#4A6B6B</div>
+                    <div class="color-rgb">RGB(74, 107, 107)</div>
+                    <div class="color-usage">Primary Brand Color<br>Headers, Navigation, Key UI</div>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #E8DCC4;"></div>
+                <div class="color-info">
+                    <div class="color-name">Cream/Beige</div>
+                    <div class="color-hex">#E8DCC4</div>
+                    <div class="color-rgb">RGB(232, 220, 196)</div>
+                    <div class="color-usage">Secondary Color<br>Backgrounds, Text on Dark, Accents</div>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #C9A961;"></div>
+                <div class="color-info">
+                    <div class="color-name">Soft Gold</div>
+                    <div class="color-hex">#C9A961</div>
+                    <div class="color-rgb">RGB(201, 169, 97)</div>
+                    <div class="color-usage">Accent Color<br>CTAs, Buttons, Highlights</div>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #2C3E50;"></div>
+                <div class="color-info">
+                    <div class="color-name">Deep Navy/Charcoal</div>
+                    <div class="color-hex">#2C3E50</div>
+                    <div class="color-rgb">RGB(44, 62, 80)</div>
+                    <div class="color-usage">Text Color<br>Body Text, Headings, Navigation</div>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #A8C5C0;"></div>
+                <div class="color-info">
+                    <div class="color-name">Light Sage</div>
+                    <div class="color-hex">#A8C5C0</div>
+                    <div class="color-rgb">RGB(168, 197, 192)</div>
+                    <div class="color-usage">Supporting Color<br>Hover States, Subtle Backgrounds</div>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #FFFFFF;"></div>
+                <div class="color-info">
+                    <div class="color-name">White</div>
+                    <div class="color-hex">#FFFFFF</div>
+                    <div class="color-rgb">RGB(255, 255, 255)</div>
+                    <div class="color-usage">Clean Space<br>Product Backgrounds, Cards</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <h4>🎨 Color Psychology & Justification</h4>
+            <p><strong>Deep Teal/Sage (#4A6B6B):</strong> Evokes tranquility, balance, and natural luxury. This calming color represents the peaceful moonlit nights and premium spa experiences. It builds trust and sophistication.</p>
+            
+            <p><strong>Cream/Beige (#E8DCC4):</strong> Warm and elegant, this color adds a touch of organic luxury. It represents natural soy wax and creates a comfortable, inviting atmosphere that feels premium yet approachable.</p>
+            
+            <p><strong>Soft Gold (#C9A961):</strong> Symbolizes luxury, prestige, and quality. This accent color makes call-to-action buttons feel exclusive and valuable, encouraging purchases while maintaining elegance.</p>
+            
+            <p><strong>Deep Navy/Charcoal (#2C3E50):</strong> Provides authority and professionalism. This text color ensures excellent readability while conveying trustworthiness and modern sophistication.</p>
+            
+            <p>This palette creates a cohesive luxury experience that appeals to our target audience of home decorators and gift buyers seeking premium, artisanal products.</p>
+        </div>
+    </div>
+    
+    <!-- Typography Section -->
+    <div id="typography" class="content-section">
+        <h2 class="section-title">Typography System</h2>
+        <p class="section-subtitle">Font families, sizes, and hierarchy for elegant readability</p>
+        
+        <div class="typography-showcase">
+            <div class="font-example">
+                <div class="font-label">Heading Font: Playfair Display (Serif)</div>
+                <div class="heading-example">Lunar Essence</div>
+                <p style="margin-top: 1rem; color: #666;">Used for: Page titles, section headings, hero text, product names</p>
+                <p style="color: #666;">Character: Elegant, sophisticated, timeless, luxurious</p>
+            </div>
+            
+            <div class="font-example">
+                <div class="font-label">Body Font: Montserrat (Sans-Serif)</div>
+                <div class="body-example">
+                    Experience the luxury of hand-poured candles inspired by the mystical phases of the moon. Each candle is crafted with premium natural soy wax and wooden wicks, creating an unforgettable sensory experience that transforms any space into a sanctuary of tranquility.
+                </div>
+                <p style="margin-top: 1rem; color: #666;">Used for: Body text, navigation, buttons, form labels, descriptions</p>
+                <p style="color: #666;">Character: Clean, modern, readable, professional</p>
+            </div>
+            
+            <div class="font-example">
+                <div

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Lunar Essence | Premium Hand-Poured Candles</title>
+    <meta name="description" content="Discover detailed information about our luxury hand-poured candles. View scent profiles, sizes, burn times, and care instructions.">
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="home.html">
+                    <img src="../assets/Logo 2.svg" alt="Lunar Essence Logo" class="logo-image">
+                </a>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item dropdown">
+                    <a href="products.html" class="nav-link">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="products.html?collection=new-moon">New Moon</a>
+                        <a href="products.html?collection=crescent">Crescent Moon</a>
+                        <a href="products.html?collection=half-moon">Half Moon</a>
+                        <a href="products.html?collection=gibbous">Gibbous Moon</a>
+                        <a href="products.html?collection=full-moon">Full Moon</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="care-tips.html" class="nav-link">Care Tips</a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="auth.html" class="nav-icon" id="auth-link">
+                    <img src="../assets/register.svg" alt="Account" class="nav-icon-img">
+                </a>
+                <a href="cart.html" class="nav-icon">
+                    <img src="../assets/shop.svg" alt="Shopping Cart" class="nav-icon-img">
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Breadcrumb Navigation -->
+        <section class="breadcrumb-section">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="home.html">Home</a>
+                    <span class="separator">></span>
+                    <a href="products.html">Shop</a>
+                    <span class="separator">></span>
+                    <span class="collection-crumb" id="collection-crumb">Full Moon</span>
+                    <span class="separator">></span>
+                    <span class="current" id="product-name-crumb">Loading...</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Detail Section -->
+        <section class="product-detail-section">
+            <div class="container">
+                <div class="product-detail-layout">
+                    <!-- Left Column - Images -->
+                    <div class="product-images">
+                        <div class="main-image-container">
+                            <img src="../assets/Candle-medium.jpg" alt="Product Image" id="main-product-image" class="main-product-image">
+                            <div class="image-zoom-overlay" id="zoom-overlay"></div>
+                        </div>
+                        <div class="thumbnail-gallery">
+                            <div class="thumbnail active" data-image="../assets/placeholder-candle-main.jpg">
+                                <img src="../assets/Candle-medium 2.jpg" alt="Main view">
+                            </div>
+                            <div class="thumbnail" data-image="../assets/placeholder-candle-angle.jpg">
+                                <img src="../assets/Candle-medium.jpg" alt="Angle view">
+                            </div>
+                            <div class="thumbnail" data-image="../assets/placeholder-candle-lid.jpg">
+                                <img src="../assets/Candle-medium.jpg" alt="Lid view">
+                            </div>
+                            <div class="thumbnail" data-image="../assets/placeholder-candle-lifestyle.jpg">
+                                <img src="../assets/Candle-medium.jpg" alt="Lifestyle view">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Product Info -->
+                    <div class="product-info">
+                        <div class="product-header">
+                            <div class="collection-badge" id="collection-badge">Full Moon Collection</div>
+                            <h1 class="product-title" id="product-title">Rhea - Coconut Apricot</h1>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                </div>
+                                <span class="rating-text">(24 reviews)</span>
+                            </div>
+                        </div>
+
+                        <div class="product-pricing">
+                            <span class="current-price" id="current-price">$32.00</span>
+                            <span class="original-price hidden" id="original-price">$40.00</span>
+                            <span class="sale-badge hidden" id="sale-badge">SAVE 20%</span>
+                        </div>
+
+                        <div class="product-description">
+                            <p id="product-description">A luxurious blend that captures the essence of abundance and completion. This Full Moon candle combines the tropical sweetness of coconut with the rich warmth of apricot, creating an intoxicating fragrance that fills your space with luxury and sophistication.</p>
+                        </div>
+
+                        <!-- Size Selection -->
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label class="option-label">Size</label>
+                                <div class="size-options" id="size-options">
+                                    <div class="size-option" data-size="votive" data-price="18.00" data-weight="3oz" data-burn="20-25">
+                                        <div class="size-name">Votive</div>
+                                        <div class="size-details">3oz / 85g</div>
+                                        <div class="size-price">$18.00</div>
+                                    </div>
+                                    <div class="size-option active" data-size="medium" data-price="32.00" data-weight="10oz" data-burn="50-60">
+                                        <div class="size-name">Medium Jar</div>
+                                        <div class="size-details">10oz / 283g</div>
+                                        <div class="size-price">$32.00</div>
+                                    </div>
+                                    <div class="size-option" data-size="large" data-price="58.00" data-weight="20oz" data-burn="100-120">
+                                        <div class="size-name">Large Statement</div>
+                                        <div class="size-details">20oz / 567g</div>
+                                        <div class="size-price">$58.00</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quantity Selection -->
+                            <div class="option-group">
+                                <label class="option-label">Quantity</label>
+                                <div class="quantity-selector">
+                                    <button class="quantity-btn" id="decrease-qty">-</button>
+                                    <input type="number" id="quantity-input" value="1" min="1" max="10">
+                                    <button class="quantity-btn" id="increase-qty">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stock Status -->
+                        <div class="stock-status">
+                            <span class="stock-indicator in-stock" id="stock-indicator">✓ In Stock</span>
+                            <span class="stock-text" id="stock-text">Ready to ship in 2-3 business days</span>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-large" id="add-to-cart-btn">
+                                Add to Cart - <span id="action-price">$32.00</span>
+                            </button>
+                            <button class="btn btn-outline btn-large" id="add-to-wishlist-btn">
+                                Add to Wishlist ♡
+                            </button>
+                        </div>
+
+                        <!-- Product Details Accordion -->
+                        <div class="product-details-accordion">
+                            <!-- Scent Profile -->
+                            <div class="accordion-item active">
+                                <div class="accordion-header">
+                                    <h3>Scent Profile</h3>
+                                    <span class="accordion-icon">−</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="scent-notes">
+                                        <div class="note-group">
+                                            <h4>Top Notes</h4>
+                                            <p>Coconut, Fresh Apricot</p>
+                                        </div>
+                                        <div class="note-group">
+                                            <h4>Middle Notes</h4>
+                                            <p>Vanilla Cream, Peach Blossom</p>
+                                        </div>
+                                        <div class="note-group">
+                                            <h4>Base Notes</h4>
+                                            <p>Tonka Bean, Warm Musk</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product Details -->
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <h3>Product Details</h3>
+                                    <span class="accordion-icon">+</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="detail-grid">
+                                        <div class="detail-item">
+                                            <strong>Net Weight:</strong>
+                                            <span id="detail-weight">10oz / 283g</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>Burn Time:</strong>
+                                            <span id="detail-burn-time">50-60 hours</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>Dimensions:</strong>
+                                            <span>3.5" W x 4.25" H</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>SKU:</strong>
+                                            <span id="detail-sku">LE-FM-RH-MED</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ingredients -->
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <h3>Ingredients</h3>
+                                    <span class="accordion-icon">+</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul class="ingredients-list">
+                                        <li>Natural Soy Wax</li>
+                                        <li>Premium Fragrance Oils</li>
+                                        <li>Wooden Wick</li>
+                                        <li>Cotton Wick (Votive size)</li>
+                                    </ul>
+                                    <p class="ingredients-note">All ingredients are ethically sourced and eco-friendly.</p>
+                                </div>
+                            </div>
+
+                            <!-- Care Instructions -->
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <h3>Care Instructions</h3>
+                                    <span class="accordion-icon">+</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="care-instructions">
+                                        <div class="care-tip">
+                                            <strong>First Burn:</strong> Allow candle to burn 3-4 hours to create full melt pool
+                                        </div>
+                                        <div class="care-tip">
+                                            <strong>Wick Trimming:</strong> Trim wick to 1/4 inch before each use
+                                        </div>
+                                        <div class="care-tip">
+                                            <strong>Burn Time:</strong> Maximum 4 hours per session
+                                        </div>
+                                        <div class="care-tip">
+                                            <strong>Safety:</strong> Never leave burning candle unattended
+                                        </div>
+                                    </div>
+                                    <a href="care-tips.html" class="care-link">View Complete Care Guide →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section class="related-products">
+            <div class="container">
+                <div class="section-header">
+                    <h2>You Might Also Like</h2>
+                    <p>Discover more candles from the same collection</p>
+                </div>
+                <div class="products-grid" id="related-products">
+                    <!-- Related products will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews Section -->
+        <section class="customer-reviews">
+            <div class="container">
+                <div class="reviews-header">
+                    <h2>Customer Reviews</h2>
+                    <div class="reviews-summary">
+                        <div class="rating-overview">
+                            <div class="average-rating">4.8</div>
+                            <div class="stars-large">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                            </div>
+                            <div class="total-reviews">Based on 24 reviews</div>
+                        </div>
+                        <button class="btn btn-outline" id="write-review-btn">Write a Review</button>
+                    </div>
+                </div>
+
+                <div class="reviews-list">
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <strong class="reviewer-name">Sarah M.</strong>
+                                <div class="review-stars">
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                </div>
+                            </div>
+                            <span class="review-date">2 weeks ago</span>
+                        </div>
+                        <div class="review-content">
+                            <h4>"Absolutely divine scent!"</h4>
+                            <p>This candle exceeded my expectations. The coconut apricot scent is perfectly balanced - not too sweet, not too tropical. Burns evenly and the wooden wick creates such a lovely crackling sound. Will definitely be ordering more!</p>
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <strong class="reviewer-name">Marcus T.</strong>
+                                <div class="review-stars">
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                            <span class="review-date">1 month ago</span>
+                        </div>
+                        <div class="review-content">
+                            <h4>"Perfect gift choice"</h4>
+                            <p>Bought this as a housewarming gift and the recipients loved it. The packaging is beautiful and the scent fills the entire room. Great quality and long burn time as advertised.</p>
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <strong class="reviewer-name">Lisa K.</strong>
+                                <div class="review-stars">
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                </div>
+                            </div>
+                            <span class="review-date">3 weeks ago</span>
+                        </div>
+                        <div class="review-content">
+                            <h4>"Luxury at its finest"</h4>
+                            <p>The quality is outstanding. You can tell these are hand-poured with care. The scent throw is excellent and it creates such a relaxing atmosphere. Worth every penny!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reviews-footer">
+                    <button class="btn btn-outline" id="load-more-reviews">Load More Reviews</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Lunar Essence</h4>
+                    <p>Hand-poured luxury candles inspired by lunar phases, crafted in Jamaica.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><img src="../assets/instagram icon.svg" alt="Instagram"></a>
+                        <a href="#" aria-label="Facebook"><img src="../assets/facebook icon.svg" alt="Facebook"></a>
+                        <a href="#" aria-label="Twitter"><img src="../assets/x icon.svg" alt="Twitter"></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="products.html">Shop</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="care-tips.html">Care Tips</a></li>
+                        <li><a href="auth.html">Account</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Collections</h4>
+                    <ul>
+                        <li><a href="products.html?collection=new-moon">New Moon</a></li>
+                        <li><a href="products.html?collection=crescent">Crescent Moon</a></li>
+                        <li><a href="products.html?collection=half-moon">Half Moon</a></li>
+                        <li><a href="products.html?collection=gibbous">Gibbous Moon</a></li>
+                        <li><a href="products.html?collection=full-moon">Full Moon</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: <a href="mailto:assascbenjamin@utech.edu.jm.com">assascbenjamin@utech.edu.jm</a></p>
+                    <p>Hand-poured in Jamaica 🇯🇲</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lunar Essence. All rights reserved. | Assas Benjamin (2401419) - CIT2011</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../Codes/Java/main.js"></script>
+    <script src="../Codes/Java/products.js"></script>
+    <script>
+        // Initialize product detail page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeProductDetail();
+        });
+    </script>
+</body>
+</html>
