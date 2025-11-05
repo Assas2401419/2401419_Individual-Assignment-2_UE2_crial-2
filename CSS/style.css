@@ -4860,7 +4860,7 @@ Product Size Display */
 .about-hero {
     min-height: 60vh;
     background: linear-gradient(135deg, rgba(44, 62, 80, 0.8) 0%, rgba(74, 107, 107, 0.8) 100%),
-                url('../assets/woman Landing.gif') center center / cover no-repeat;
+                url('../assets/Moon move.gif') center center / cover no-repeat;
     background-attachment: fixed;
     display: flex;
     align-items: center;
@@ -4895,8 +4895,8 @@ Product Size Display */
     font-weight: var(--font-bold);
     margin-bottom: var(--space-lg);
     background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 50%, var(--color-secondary) 100%);
-    /*-webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     background-clip: text;
     text-shadow: 0 0 30px rgba(232, 220, 196, 0.4);
 }
