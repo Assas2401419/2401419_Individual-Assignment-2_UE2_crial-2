@@ -1,7 +1,7 @@
 // Lunar Essence - Products Page JavaScript
 // Product catalog functionality, filtering, and display
 
-// Sample product data (in a real app, this would come from a database/API)
+// An object with a string of data, Sample product data (in a real app, this would come from a database/API)
 const productsData = [
     {
         id: 'new-moon-essence',
