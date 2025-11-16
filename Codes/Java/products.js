@@ -198,16 +198,8 @@ function displayProducts(products) {
         </div>
     `).join('');
     
-    // Add click handlers for product cards
-    document.querySelectorAll('.product-card').forEach(card => {
-        card.addEventListener('click', function(e) {
-            if (!e.target.closest('.add-to-cart-btn')) {
-                const productId = this.dataset.productId;
-                // In a real app, this would navigate to product detail page
-                console.log('Navigate to product:', productId);
-            }
-        });
-    });
+    // Product cards are clickable - add to cart button is the main action
+    // No product detail page - all info shown on products page
 }
 
 // Initialize filter functionality
